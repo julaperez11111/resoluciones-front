@@ -1,9 +1,10 @@
 let request = {
-  fecha: "",
   nombres: "",
-  pasaporte: "",
   nacionalidad: "",
-  he: "",
+  numUnico: "",
+  tipoID: "",
+  numID: "",
+  fecha: "",
   autoApertura: "",
   autoFormulacion: "",
   expediente: "",
@@ -15,7 +16,7 @@ let request = {
 };
 
 // Este es el botón imprimir
-const imprimir = document.getElementById("submit");
+const submit = document.getElementById("submit");
 
 // Este es el textarea
 const mensaje = document.getElementById("mensaje");
@@ -41,22 +42,35 @@ document.querySelectorAll("input").forEach((item) => {
 });
 
 const postData = async (request) => {
+  state = { loading: true, error: null };
   const body = {
     fileType: "portada",
     data: request,
   };
-  const res = await fetch("http://localhost:3000/api", {
-    method: "POST",
-    body: JSON.stringify(body),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const data = await res.json();
-  // console.log(data);
+  try {
+    console.log(state)
+    const res = await fetch("http://localhost:3000/api", {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    state = { loading: false, error: null };
+    console.log(data);
+  } catch (error) {
+    console.log(error)
+    state = { loading: false, error };
+  }
 };
 
-imprimir.onclick = (e) => {
+submit.onclick = (e) => {
   e.preventDefault();
+  console.log("No")
   postData(request);
 };
+
+function onClickTest() {
+  console.log("Si")
+}

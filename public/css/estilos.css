@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: url(../images/migracion2.jpg) center top;
+}
+
+.contenedor {
+    align-items: center;
+    /*background-color: blueviolet;*/
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin:0 auto;
+    /*width:800px;*/
+}
+
+.datos {
+    align-items: center;
+    text-align: center;
+    /*width: 800px;
+    height: 470px; */
+    background: rgba(229, 241, 206, 0.911);
+    color: rgb(7, 7, 7);
+    /*top: 90%;
+    left: 50%;*/
+    /*position: static;*/
+    padding: 30px;
+    border-radius: 20px;
+    margin: 0 auto;    
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    /*border: 1px solid #000;*/
+}
+
+tr {
+    width: 100%;
+}
+
+table th {
+    font-size: 25px;
+}
+
+table tr select {
+    font-size: 18px;
+    border: none;
+    text-align: center;
+    background-color: rgba(229, 241, 206, 0.911);
+}
+
+th td {
+    width: 55%;
+    text-align: center;
+    vertical-align: bottom;
+    border: 1px solid #000;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid rgb(230, 52, 52);
+    background: transparent;
+    outline: none;
+    height: 40px;
+    /*color: rgb(65, 189, 82);*/
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+textarea {
+    width: 90%;
+    height: 200px;
+    font-size: 18px;
+}
+
+.submit-button:hover {
+    background: rgba(179, 228, 88, 0.993);
+    cursor: pointer;
+}
+
+.submit-button {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: auto;
+    background: rgb(34,177,76);
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.reset-button {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: auto;
+    background: rgb(34,177,76);
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.reset-button:hover {
+    background: rgba(179, 228, 88, 0.993);
+    cursor: pointer;
+}

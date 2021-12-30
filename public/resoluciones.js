@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Datos Usuario</title>
-    <link rel="stylesheet" href="./css/estilos.css" />
-  </head>
-  <body>
-    <div class="contenedor">
+export const resoluciones = `
+<div class="contenedor">
       <div class="datos">
         <form action="#" method="POST">
           <table cellspacing="7">
@@ -237,7 +228,6 @@
               class="submit-button"
               id="submit"
               type="button"
-              onclick="onClickTest()"
             >
               Enviar
             </button>
@@ -251,6 +241,4 @@
         </form>
       </div>
     </div>
-  </body>
-  <script src="./js/fetch.js"></script>
-</html>
+`
