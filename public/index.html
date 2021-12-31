@@ -25,12 +25,13 @@
                 <th>Número único</th>
               </tr>
               <tr>
-                <td><input type="date" name="fecha" /></td>
+                <td><input type="date" name="fecha" required/></td>
                 <td>
                   <input
                     type="number"
                     name="numUnico"
                     placeholder="Historial Extranjero"
+                    required
                   />
                 </td>
               </tr>
@@ -50,6 +51,7 @@
                   <input
                     type="text"
                     name="nombres"
+                    required
                     placeholder="Nombres y apellidos"
                     size="40"
                   />
@@ -69,7 +71,7 @@
               </tr>
               <tr>
                 <td>
-                  <select name="tipoID" id="tipoID">
+                  <select name="tipoID" id="tipoID" required>
                     <option disabled selected>Seleccione el Tipo de ID</option>
                     <option value="Cédula de Ciudadania">CC</option>
                     <option value="Documento Nacional de Identificacion">
@@ -81,7 +83,7 @@
                   </select>
                 </td>
                 <td>
-                  <input type="text" name="numID" placeholder="Document #" />
+                  <input type="text" name="numID" placeholder="Document #" required/>
                 </td>
               </tr>
               <tr></tr>
@@ -96,7 +98,7 @@
               </tr>
               <tr>
                 <td colspan="2">
-                  <input type="text" name="nacionalidad" size="25" />
+                  <input type="text" name="nacionalidad" size="25" required/>
                 </td>
               </tr>
               <tr></tr>
@@ -116,6 +118,7 @@
                     type="number"
                     name="autoApertura"
                     placeholder="000000"
+                    required
                   />
                 </td>
                 <td>
@@ -123,6 +126,7 @@
                     type="number"
                     name="autoFormulacion"
                     placeholder="000000"
+                    required
                   />
                 </td>
               </tr>
@@ -139,13 +143,14 @@
               </tr>
               <tr>
                 <td>
-                  <input type="number" name="expediente" placeholder="000000" />
+                  <input type="number" name="expediente" placeholder="000000" required />
                 </td>
                 <td>
                   <input
                     type="number"
                     name="informeCaso"
                     placeholder="000000"
+                    required
                   />
                 </td>
               </tr>
@@ -161,8 +166,8 @@
                 <th>Fecha Resolución</th>
               </tr>
               <tr>
-                <td><input type="number" name="resolucion" /></td>
-                <td><input type="date" name="fechaResolucion" /></td>
+                <td><input type="number" name="resolucion" required/></td>
+                <td><input type="date" name="fechaResolucion" required/></td>
               </tr>
               <tr></tr>
               <tr></tr>
@@ -177,7 +182,7 @@
               <tr>
                 <td colspan="2">
                   <!--align="center"-->
-                  <select name="valorMulta" id="valorMulta">
+                  <select name="valorMulta" id="valorMulta" required>
                     <option disabled selected>
                       Seleccione valor Multa a Aplicar
                     </option>
@@ -229,7 +234,7 @@
             <input
               class="submit-button"
               id="submit"
-              type="button"
+              type="submit"
               value="Enviar"
             />
             <input
