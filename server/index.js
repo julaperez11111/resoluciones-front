@@ -1,7 +1,7 @@
 const express = require("express");
 const { exec } = require("child_process");
 const { getTemplateFile } = require("./utils/getTemplateFile");
-const { parseData } = require("./utils/parseData")
+const { parseData } = require("./utils/parseData");
 
 const app = express();
 const rpaResolucionesFolder = "../rpa_resoluciones";
@@ -19,16 +19,17 @@ const crearResoluciones = async (req, res) => {
       (err, stdout, stderr) => {
         if (err) {
           console.log(err);
-          resolve({
-            message: "Algo fallo",
+          return resolve({
+            message: "Algo falló",
+            error: err,
           });
         }
-        resolve({ response: "He terminado" });
+        resolve({ message: "Terminó exitosamente" });
       }
     );
   });
-  const response = await scriptExec
-  return res.json(response)
+  const response = await scriptExec;
+  return res.json(response);
 };
 
 app.use(express.json());
