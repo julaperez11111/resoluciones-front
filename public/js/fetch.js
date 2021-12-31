@@ -12,7 +12,6 @@ let request = {
   resolucion: "",
   fechaResolucion: "",
   valorMulta: "",
-  mensaje: "",
 };
 
 let state = {
@@ -27,24 +26,23 @@ const spinner = document.getElementById("spinner")
 // Este es el botón imprimir
 const submit = document.getElementById("submit");
 
-// Este es el textarea
-const mensaje = document.getElementById("mensaje");
-
 // Este es el select
 const valorMulta = document.getElementById("valorMulta");
 
-mensaje.addEventListener("input", (e) => {
-  request.mensaje = e.target.value;
-});
+// Este es el select de tipo de identificacion
+const tipoID = document.getElementById("tipoID");
 
 valorMulta.addEventListener("change", (e) => {
   request.valorMulta = e.target.value;
 });
 
+tipoID.addEventListener("change", (e) => {
+  request.tipoID = e.target.value;
+});
 // estos son los inputs
 document.querySelectorAll("input").forEach((item) => {
   const updateValue = (e) => {
-    request[item.id] = e.target.value;
+    request[item.name] = e.target.value;
     // console.log(request)
   };
   item.addEventListener("input", updateValue);
@@ -52,10 +50,8 @@ document.querySelectorAll("input").forEach((item) => {
 
 const postData = async (request) => {
   toggleSpinner(true)
-  const body = {
-    fileType: "portada",
-    data: request,
-  };
+  const body = request;
+  console.log(body)
   try {
     const res = await fetch("http://localhost:3000/api", {
       method: "POST",

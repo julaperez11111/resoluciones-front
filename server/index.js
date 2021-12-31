@@ -8,14 +8,12 @@ const rpaResolucionesFolder = "../rpa_resoluciones";
 
 const crearResoluciones = async (req, res) => {
   console.log("Procesando resoluciones");
-  const templateFile = getTemplateFile(req.body.fileType);
-  const data = parseData(JSON.stringify(req.body.data));
+  const data = parseData(JSON.stringify(req.body));
   console.log(data);
-  console.log(templateFile);
   const scriptExec = new Promise((resolve, reject) => {
     // con la request vamos a ejecutar el python
     exec(
-      `python ${rpaResolucionesFolder}/main.py --template-file ${templateFile} --data "${data}"`,
+      `python ${rpaResolucionesFolder}/main.py --data "${data}"`,
       (err, stdout, stderr) => {
         if (err) {
           console.log(err);
