@@ -15,6 +15,15 @@ let request = {
   mensaje: "",
 };
 
+let state = {
+  loading: false,
+  error: null,
+};
+
+const mainContainer = document.getElementById("main-container")
+
+const spinner = document.getElementById("spinner")
+
 // Este es el botón imprimir
 const submit = document.getElementById("submit");
 
@@ -42,13 +51,12 @@ document.querySelectorAll("input").forEach((item) => {
 });
 
 const postData = async (request) => {
-  state = { loading: true, error: null };
+  toggleSpinner(true)
   const body = {
     fileType: "portada",
     data: request,
   };
   try {
-    console.log(state)
     const res = await fetch("http://localhost:3000/api", {
       method: "POST",
       body: JSON.stringify(body),
@@ -58,19 +66,29 @@ const postData = async (request) => {
     });
     const data = await res.json();
     state = { loading: false, error: null };
+    toggleSpinner(false)
     console.log(data);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     state = { loading: false, error };
+    toggleSpinner(false)
   }
 };
 
-submit.onclick = (e) => {
+submit.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("No")
   postData(request);
-};
+}, false);
 
-function onClickTest() {
-  console.log("Si")
+const toggleSpinner = (loading) => {
+  if (loading) {
+    mainContainer.classList.add("opaque")
+    spinner.classList.remove("hidden");
+    spinner.classList.add("visible")
+  }
+  else {
+    mainContainer.classList.remove("opaque")
+    spinner.classList.remove("visible");
+    spinner.classList.add("hidden")
+  }
 }

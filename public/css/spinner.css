@@ -1,9 +1,9 @@
 .spinner {
-  width: 36px;
-  height: 36px;
-  border: 5px solid rgba(0, 0, 0, 0.3);
+  width: 72px;
+  height: 72px;
+  border: 10px solid rgba(0, 0, 0, 0.3);
   border-radius: 50%;
-  border-left-color: #7d47ff;
+  border-left-color: #140538;
 
   animation: spin 1s ease infinite;
 }
@@ -18,9 +18,20 @@
   }
 }
 
-.centered-container {
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#spinner {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
