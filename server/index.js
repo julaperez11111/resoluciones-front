@@ -4,7 +4,7 @@ const { getTemplateFile } = require("./utils/getTemplateFile");
 const { parseData } = require("./utils/parseData");
 
 const app = express();
-const rpaResolucionesFolder = "../rpa_resoluciones";
+const rpaResolucionesFolder = "../resoluciones-rpa";
 
 const crearResoluciones = async (req, res) => {
   console.log("Procesando resoluciones");
@@ -22,6 +22,7 @@ const crearResoluciones = async (req, res) => {
             error: err,
           });
         }
+        console.log(stdout)
         resolve({ message: "Terminó exitosamente" });
       }
     );
