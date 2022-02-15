@@ -7,6 +7,7 @@
     <title>Datos Usuario</title>
     <link rel="stylesheet" href="./css/estilos.css" />
     <link rel="stylesheet" href="./css/spinner.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
   </head>
   <body>
     <div id="main-container" class="contenedor migration-background">
@@ -25,7 +26,7 @@
                 <th>Número único</th>
               </tr>
               <tr>
-                <td><input type="date" name="fecha" required/></td>
+                <td><input type="date" name="fecha" required /></td>
                 <td>
                   <input
                     type="number"
@@ -73,17 +74,20 @@
                 <td>
                   <select name="tipoID" id="tipoID" required>
                     <option disabled selected>Seleccione el Tipo de ID</option>
-                    <option value="Cédula de Ciudadania">CC</option>
-                    <option value="Documento Nacional de Identificacion">
-                      DNI
-                    </option>
+                    <option value="Cédula de Ciudadanía">CC</option>
+                    <option value="DNI">DNI</option>
                     <option value="Pasaporte">Pass</option>
                     <!--<option value="Estadounidense">Estadounidense</option>
                                     <option value="Español">Español</option> -->
                   </select>
                 </td>
                 <td>
-                  <input type="text" name="numID" placeholder="Document #" required/>
+                  <input
+                    type="text"
+                    name="numID"
+                    placeholder="Document #"
+                    required
+                  />
                 </td>
               </tr>
               <tr></tr>
@@ -98,7 +102,7 @@
               </tr>
               <tr>
                 <td colspan="2">
-                  <input type="text" name="nacionalidad" size="25" required/>
+                  <input type="text" name="nacionalidad" size="25" required />
                 </td>
               </tr>
               <tr></tr>
@@ -143,7 +147,12 @@
               </tr>
               <tr>
                 <td>
-                  <input type="number" name="expediente" placeholder="000000" required />
+                  <input
+                    type="number"
+                    name="expediente"
+                    placeholder="000000"
+                    required
+                  />
                 </td>
                 <td>
                   <input
@@ -166,8 +175,8 @@
                 <th>Fecha Resolución</th>
               </tr>
               <tr>
-                <td><input type="number" name="resolucion" required/></td>
-                <td><input type="date" name="fechaResolucion" required/></td>
+                <td><input type="number" name="resolucion" required /></td>
+                <td><input type="date" name="fechaResolucion" required /></td>
               </tr>
               <tr></tr>
               <tr></tr>
@@ -186,36 +195,47 @@
                     <option disabled selected>
                       Seleccione valor Multa a Aplicar
                     </option>
-                    <option
-                      value="CUATROCIENTOS NOVENTA Y NUEVE MIL SEICIENTOS OCHENTA Y NUEVE PESOS $499.689"
-                    >
-                      1 a 30 días $499.689
+                    <option value="UN MILLÓN CINCUENTA MIL PESOS $1.050.000,oo">
+                      Sin Atenuante 1 a 30 días $1.050.00,oo
+                    </option>
+                    <option value="UN MILLÓN CIEN MIL PESOS $1.100.000,oo">
+                      Sin Atenuente 31 a 60 días $1.100.000,oo
                     </option>
                     <option
-                      value="QUINIENTOS CUARENTA Y CINCO MIL CIENTO QUINCE PESOS $545.115"
+                      value="UN MILLÓN CIENTO CINCUENTA MIL PESOS $1.150.000,oo"
                     >
-                      31 a 60 días $545.115
+                      Sin Atenuente 61 a 90 días $1.150.000,oo
                     </option>
                     <option
-                      value="QUINIENTOS NOVENTA MIL QUINIENTOS CUARENTA Y UNO PESOS $590.541"
+                      value="UN MILLÓN DOSCIENTOS MIL PESOS $1.200.000,oo"
                     >
-                      61 a 90 días $590.541
+                      Sin Atenuente 91 a 120 días $1.200.000,oo
                     </option>
                     <option
-                      value="SEISCIENTOS TREINTA Y CINCO MIL NOVECIENTOS SESENTA Y OCHO PESOS $635.968"
+                      value="UN MILLÓN DOSCIENTOS CINCUENTA MIL PESOS $1.250.000,oo"
                     >
-                      91 a 120 días $635.968
+                      Sin Atenuente Mayor a 121 días $1.250.000,oo
                     </option>
-                    <option
-                      value="SEISCIENTOS OCHENTA Y UN MIL TRESCIENTOS NOVENTA Y CUATRO PESOS $681.394"
-                    >
-                      Mayor a 121 días $681.394
+                    <option value="QUINIENTOS CINCUENTA MIL PESOS $550.000,oo">
+                      Con Atenuante 1 a 30 días $550.000,oo
+                    </option>
+                    <option value="SEISCIENTOS MIL PESOS $600.000,oo">
+                      Con Atenuente 31 a 60 días $600.000,oo
+                    </option>
+                    <option value="SEISCIENTOS CINCUENTA MIL PESOS $650.000,oo">
+                      Con Atenuente 61 a 90 días $650.000,oo
+                    </option>
+                    <option value="SETECIENTOS MIL PESOS $700.000,oo">
+                      Con Atenuente 91 a 120 días $700.000,oo
+                    </option>
+                    <option value="SETECIENTOS CINCUENTA MIL PESOS $750.000,oo">
+                      Con Atenuente Mayor a 121 días $750.000,oo
                     </option>
                   </select>
                 </td>
               </tr>
 
-             <!-- <tr>
+              <!-- <tr>
                 <th colspan="2">Observaciones</th>
               </tr>
               <tr>
@@ -248,7 +268,19 @@
       </div>
     </div>
     <div id="spinner" class="spinner hidden"></div>
-    <div id="modal" class="modal hidden"></div>
+    <div id="modal" class="modal hidden">
+      <div class="modal-container">
+        <div class="contenedor modal-title">
+          <h3 id="modal-title"></h3>
+        </div>
+        <div class="contenedor modal-description">
+          <p id="modal-description"></p>
+        </div>
+        <div class="contenedor modal-button">
+          <button id="action-button" class="action-button">aceptar</button>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="./js/fetch.js"></script>
 </html>
