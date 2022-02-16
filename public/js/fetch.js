@@ -104,6 +104,8 @@ const toggleModal = (options = {}) => {
     document.getElementById("modal-title").innerHTML = "Se creo exitosamente";
     document.getElementById("modal-description").innerHTML =
       "Se generó los archivos correctamente, por favor verifique la carpeta de outputs";
+    document.querySelector(".modal-title").classList.add("modal__success")
+    document.getElementById("action-button").classList.add("modal__success")
     mainContainer.classList.add("opaque");
     modal.classList.remove("hidden");
     modal.classList.add("visible");
@@ -111,6 +113,8 @@ const toggleModal = (options = {}) => {
   } else if (options.typeMessage == "failure") {
     document.getElementById("modal-title").innerHTML = "Ocurrió un error";
     document.getElementById("modal-description").innerHTML = options.message;
+    document.querySelector(".modal-title").classList.add("modal__failure")
+    document.getElementById("action-button").classList.add("modal__failure")
     mainContainer.classList.add("opaque");
     modal.classList.remove("hidden");
     modal.classList.add("visible");
@@ -125,10 +129,12 @@ const toggleModal = (options = {}) => {
 const cleanForm = () => {
   request = Object.assign(defaultRequest);
   document.querySelectorAll("input").forEach((item) => {
-    item.value = ""
+    if (!["submit", "clean-button"].includes(item.id)) {
+      item.value = "";
+    }
   });
-  valorMulta.value = "Seleccione valor Multa a Aplicar"
-  tipoID.value = "Seleccione el Tipo de ID"
+  valorMulta.value = "Seleccione valor Multa a Aplicar";
+  tipoID.value = "Seleccione el Tipo de ID";
 };
 
 actionButton.addEventListener(
