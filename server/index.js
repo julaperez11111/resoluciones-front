@@ -1,6 +1,5 @@
 const express = require("express");
 const { exec } = require("child_process");
-const { getTemplateFile } = require("./utils/getTemplateFile");
 const { parseData } = require("./utils/parseData");
 
 const app = express();
